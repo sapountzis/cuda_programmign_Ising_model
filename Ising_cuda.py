@@ -352,6 +352,7 @@ if __name__ == '__main__':
     print(f'Cuda v3 time (iterations={iters}): {cu_v3_time} sec total, {cu_v3_time / iters} sec per iteration\n')
     stats = stats.append({'n': n, 'iterations': iters, 'implementation': f'cuda_v3_b({data_per_block_x}x{data_per_block_y})_t({data_per_thread_x}x{data_per_thread_y})', 'avg_loop_time': cu_v3_time / iters}, ignore_index=True)
 
+    # verify that all implementations produce the same result
     assert np.abs(seq_res - seq_opt_res).mean() == 0
     assert np.abs(vec_res - seq_opt_res).mean() == 0
     assert np.abs(vec_res - cu_v1_res).mean() == 0
