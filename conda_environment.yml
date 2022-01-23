@@ -1,0 +1,9 @@
+name: pds_cuda
+channels:
+  - defaults
+dependencies:
+  - python=3.9
+  - cudatoolkit
+  - numba
+  - pandas
+  - matplotlib
